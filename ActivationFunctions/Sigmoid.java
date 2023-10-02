@@ -1,9 +1,8 @@
+package ActivationFunctions;
 import java.util.List;
 
-
-public class SoftMax {
-    
-    void activateList(List<Double> output){
+public class Sigmoid extends Activation{
+    public void activateList(List<Double> output){
         double sum = 0.0;
         for (int i = 0; i < output.size(); i++) {
             double x = Math.exp(output.get(i));//exponentiating the values
@@ -12,11 +11,6 @@ public class SoftMax {
         }
         for (int i = 0; i < output.size(); i++) {
             output.add(i,output.get(i)/sum);//normalizing the values
-        }
-    }
-    void activateBatch(List<List<Double>> outputs){
-        for (List<Double> list : outputs) {
-            activateList(list);
         }
     }
 }
